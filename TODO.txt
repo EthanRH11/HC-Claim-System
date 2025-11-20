@@ -1,0 +1,53 @@
+2. Connect Microservices
+
+ Update Ingestion service to send claim data to Processing service via REST:
+
+Use RestTemplate or WebClient in Spring Boot.
+
+Example endpoint: POST /ingest → forwards to /process.
+
+ Ensure Processing service processes the claim correctly and responds.
+
+3. Claim Model & Validation
+
+ Create model/Claim.java in both services:
+
+Fields: claimId, patientId, amount, status, submittedDate, etc.
+
+ Add validation annotations (@NotNull, @Size, @Positive, etc.) for basic data integrity.
+
+ Update controllers to use @RequestBody Claim instead of String.
+
+4. Persistence Layer (Optional but impressive)
+
+ Add in-memory H2 database (or SQLite) for storing claims.
+
+ Create repository/ClaimRepository.java using Spring Data JPA.
+
+ Update Processing service to save processed claims.
+
+ Add GET endpoints to retrieve processed claims.
+
+5. Dockerization
+
+ Write Dockerfiles for both services.
+
+ Update infra/docker-compose.yml to run both microservices together.
+
+ Test containerized services locally.
+
+6. Infrastructure / DevOps (Optional Extra Credit)
+
+ Terraform scripts in infra/terraform/ to provision AWS resources (S3, EC2, RDS, etc.) for future deployment.
+
+ Monitoring setup in infra/monitoring/ (Prometheus/Grafana or Spring Boot Actuator metrics).
+
+ Update README with instructions for local development, Docker, and Terraform.
+
+7. Logging, Metrics & Testing
+
+ Add logging with slf4j or Logback.
+
+ Add simple unit tests for controllers (@SpringBootTest or @WebMvcTest).
+
+ Add integration tests: POST to ingestion → processing → database check.
