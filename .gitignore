@@ -1,6 +1,38 @@
+# -------------------------------
+# Maven / Java
+# -------------------------------
 target/
+*.class
+*.jar
+*.war
+*.ear
 *.log
-
 *.iml
+
+# -------------------------------
+# IDEs
+# -------------------------------
+# IntelliJ
 .idea/
+*.iws
+*.iml
+*.ipr
+
+# VS Code
 .vscode/
+
+# Eclipse
+.settings/
+*.project
+*.classpath
+
+# -------------------------------
+# OS Files
+# -------------------------------
+.DS_Store
+Thumbs.db
+
+# -------------------------------
+# Spring Boot / Others
+# -------------------------------
+spring-boot-devtools.properties
